@@ -12,16 +12,26 @@
     <header>
         <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
         <nav class="headerNav">
-            <a href="../../adm.html"><button>Tabela</button></a>
+            <a href="../../adm.html"><button>Acesso do ADM</button></a>
             <a href="crudEst.html"><button>CRUD</button></a>
         </nav>
     </header>
     <main>
         <section class="section1">
-            <h1>Buscar por campo </h1>
+            <h1>Mostrar por campo </h1>
             <h2>Tabela Estabelecimento</h2>
             <form action="buscarCampoEst" method="post">
-                <input type="text" name="campo"  placeholder="Insira o campo:">
+                <select name="frequencia" id="escolha">
+                    <option value="">Escolha uma coluna</option>
+                    <option value="iid">Id</option>
+                    <option value="cnome">Nome</option>
+                    <option value="cnota">Nota</option>
+                    <option value="ccep">CEP</option>
+                    <option value="crua">Rua</option>
+                    <option value="ccidade">Cidade</option>
+                    <option value="cestado">Estado</option>
+                    <option value="cfoto">Foto</option>
+                </select>
                 <br>
                 <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
                 <br>

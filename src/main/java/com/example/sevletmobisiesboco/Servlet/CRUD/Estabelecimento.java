@@ -14,7 +14,7 @@ public class Estabelecimento extends Conexao{
     public int inserir(EstabelecimentoObj estabelecimentoObj){
         conectar();//abrindo a conexão com o banco
         try {
-            pstmt = conn.prepareStatement("INSERT INTO Estabelecimento ( cNome, nNota, iCep, cRua, cCidade, cEstado,  itpestabelecimento) " +
+            pstmt = conn.prepareStatement("INSERT INTO Estabelecimento ( cNome, nNota, iCep, cRua, cCidade, cEstado, cFoto  itpestabelecimento) " +
                     "VALUES (?,?,?,?,?,?,?)");
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
@@ -23,7 +23,8 @@ public class Estabelecimento extends Conexao{
             pstmt.setString(4, estabelecimentoObj.getRua());
             pstmt.setString(5, estabelecimentoObj.getCidade());
             pstmt.setString(6, estabelecimentoObj.getEstado());
-            pstmt.setInt(7, estabelecimentoObj.getFkTpEstabelecimento());
+            pstmt.setString(7, estabelecimentoObj.getFoto());
+            pstmt.setInt(8, estabelecimentoObj.getFkTpEstabelecimento());
             return pstmt.executeUpdate();//executando o comando sql do preparedStatement
         }catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -54,8 +55,9 @@ public class Estabelecimento extends Conexao{
                     String cidade = rs.getString("ccidade");
                     String estado = rs.getString("cestado");
                     int idTpEst = rs.getInt("iTpEstabelecimento");
+                    String foto = rs.getString("cfoto");
                     //criando objeto da tabela pra ser retorno
-                    estabelecimentoObj = new EstabelecimentoObj(nome, nota, cep, rua, cidade, estado, idTpEst);
+                    estabelecimentoObj = new EstabelecimentoObj(nome, nota, cep, rua, cidade, estado, foto, idTpEst);
                     return estabelecimentoObj;
                 }
             }
@@ -71,7 +73,7 @@ public class Estabelecimento extends Conexao{
     public int alterar(EstabelecimentoObj estabelecimentoObj, int iid){
         conectar();
         try{
-            pstmt = conn.prepareStatement("UPDATE Estabelecimento SET cnome = ?, nnota = ?, icep = ?, crua = ?, ccidade = ?, cestado = ?, itpestabelecimento = ?  WHERE iid = ?");
+            pstmt = conn.prepareStatement("UPDATE Estabelecimento SET cnome = ?, nnota = ?, icep = ?, crua = ?, ccidade = ?, cestado = ?, cfoto = ?, itpestabelecimento = ?  WHERE iid = ?");
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
             pstmt.setDouble(2, estabelecimentoObj.getNota());
@@ -79,8 +81,9 @@ public class Estabelecimento extends Conexao{
             pstmt.setString(4, estabelecimentoObj.getRua());
             pstmt.setString(5, estabelecimentoObj.getCidade());
             pstmt.setString(6, estabelecimentoObj.getEstado());
-            pstmt.setInt(7, estabelecimentoObj.getFkTpEstabelecimento());
-            pstmt.setInt(8, iid);
+            pstmt.setString(7, estabelecimentoObj.getFoto());
+            pstmt.setInt(8, estabelecimentoObj.getFkTpEstabelecimento());
+            pstmt.setInt(9, iid);
             return pstmt.executeUpdate();//executando o comando sql do preparedStatement
         }catch (SQLException sqle) {
             sqle.printStackTrace();

@@ -25,11 +25,12 @@ public class ServletEstabelecimentoInserir extends HttpServlet {
             String rua = request.getParameter("rua");
             String cidade = request.getParameter("cidade");
             String estado = request.getParameter("estado");
+            String foto = request.getParameter("foto");
             int itpestabelecimento = Integer.parseInt(request.getParameter("tpEstabelecimento"));
 
             //Criando os objetos das classes
             Estabelecimento estabelecimentoCrud = new Estabelecimento();
-            EstabelecimentoObj estabelecimentoObj = new EstabelecimentoObj(nome, nota, cep, rua, cidade, estado, itpestabelecimento);
+            EstabelecimentoObj estabelecimentoObj = new EstabelecimentoObj(nome, nota, cep, rua, cidade, estado, foto, itpestabelecimento);
 
             //Retornando a mensagem para o usuário
             int resultado = estabelecimentoCrud.inserir(estabelecimentoObj);

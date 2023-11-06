@@ -20,7 +20,7 @@
 <header>
   <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
-    <a href="../../adm.html"><button>Tabela</button></a>
+    <a href="../../adm.html"><button>Acesso do ADM</button></a>
     <a href="crudForm.html"><button>CRUD</button></a>
   </nav>
 </header>

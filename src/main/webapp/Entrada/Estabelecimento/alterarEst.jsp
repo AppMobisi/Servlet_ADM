@@ -20,7 +20,7 @@
 <header>
     <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
     <nav class="headerNav">
-        <a href="../../adm.html"><button>Tabela</button></a>
+        <a href="../../adm.html"><button>Acesso do ADM</button></a>
         <a href="crudEst.html"><button>CRUD</button></a>
     </nav>
 </header>
@@ -50,6 +50,9 @@
             <br>
             <label for="rua">Insira a rua</label>
             <input type="text" name="rua" id="rua" value="<%=request.getAttribute("rua")%>">
+            <br>
+            <label for="foto">Insira a URL da foto</label>
+            <input type="text" name="foto" id="foto" value="<%=request.getAttribute("foto")%>">
             <br>
             <label for="tpEst">Insira o id tipo Estabelecimento</label>
             <input type="text" name="tpEst" id="tpEst" value="<%=request.getAttribute("tpEst")%>">

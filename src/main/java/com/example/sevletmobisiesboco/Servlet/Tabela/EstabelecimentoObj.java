@@ -7,18 +7,20 @@ public class EstabelecimentoObj {
     private String rua;
     private String cidade;
     private String  estado;
+    private String foto;
     private int  fkTpEstabelecimento;
 
     //metodo construtor
 
 
-    public EstabelecimentoObj(String nome, double nota, int cep, String rua, String cidade, String estado, int fkTpEstabelecimento) {
+    public EstabelecimentoObj(String nome, double nota, int cep, String rua, String cidade, String estado, String foto, int fkTpEstabelecimento) {
         this.nome = nome;
         this.nota = nota;
         this.cep = cep;
         this.rua = rua;
         this.cidade = cidade;
         this.estado = estado;
+        this.foto = foto;
         this.fkTpEstabelecimento = fkTpEstabelecimento;
     }
 
@@ -69,6 +71,13 @@ public class EstabelecimentoObj {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public int getFkTpEstabelecimento() {

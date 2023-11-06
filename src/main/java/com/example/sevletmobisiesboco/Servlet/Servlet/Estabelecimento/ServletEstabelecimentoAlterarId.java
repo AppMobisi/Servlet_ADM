@@ -31,6 +31,7 @@ public class ServletEstabelecimentoAlterarId extends HttpServlet {
                 request.setAttribute("cidade", estabelecimentoObj.getCidade());
                 request.setAttribute("cep", estabelecimentoObj.getCep());
                 request.setAttribute("estado", estabelecimentoObj.getEstado());
+                request.setAttribute("foto", estabelecimentoObj.getFoto());
                 request.setAttribute("tpEst", estabelecimentoObj.getFkTpEstabelecimento());
                 //Retornando a mensagem para o usuário
                 request.getRequestDispatcher("alterarEst.jsp").forward(request, response);

@@ -23,13 +23,13 @@
 <header>
   <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
-    <a href="../../adm.html"><button>Tabela</button></a>
+    <a href="../../adm.html"><button>Acesso do ADM</button></a>
     <a href="crudEst.html"><button>CRUD</button></a>
   </nav>
 </header>
 <main>
   <section class="section1">
-    <h1>Buscar </h1>
+    <h1>Mostrar tudo</h1>
     <h2>Tabela Estabelecimento</h2>
     <table class="tabela" border=2 width="90%">
       <tr>
@@ -40,6 +40,7 @@
         <th>Rua</th>
         <th>Cidade</th>
         <th>Estado</th>
+        <th>Foto</th>
         <th>Tp Estabelecimento</th>
       </tr>
       <%
@@ -56,6 +57,7 @@
         <td><%= rs.getString("cRua")%></td>
         <td><%= rs.getString("cCidade")%></td>
         <td><%= rs.getString("cEstado")%></td>
+        <td><%= rs.getInt("cFoto")%></td>
         <td><%= rs.getInt("itpestabelecimento")%></td>
       </tr>
       <% }

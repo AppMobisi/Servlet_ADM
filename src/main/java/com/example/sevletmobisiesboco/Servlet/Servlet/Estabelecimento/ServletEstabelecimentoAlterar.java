@@ -28,10 +28,11 @@ public class ServletEstabelecimentoAlterar extends HttpServlet {
             String rua = request.getParameter("rua");
             String cidade = request.getParameter("cidade");
             String estado = request.getParameter("estado");
+            String foto = request.getParameter("foto");
             String tpEst = request.getParameter("tpEst");
 
             //Executando o método
-            int resultado = estabelecimento.alterar(new EstabelecimentoObj(nome,Double.parseDouble(nota),Integer.parseInt(cep),rua, cidade, estado,Integer.parseInt( tpEst)),Integer.parseInt(id));
+            int resultado = estabelecimento.alterar(new EstabelecimentoObj(nome,Double.parseDouble(nota),Integer.parseInt(cep),rua, cidade, estado, foto,Integer.parseInt( tpEst)),Integer.parseInt(id));
             //Retornando a mensagem para o usuário
             if(resultado >= 1){
                 request.getRequestDispatcher("../../Retorno/Certo/alterar.html").forward(request, response);

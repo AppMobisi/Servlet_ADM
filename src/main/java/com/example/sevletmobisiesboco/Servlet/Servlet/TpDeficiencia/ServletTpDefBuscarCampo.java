@@ -38,6 +38,9 @@ public class ServletTpDefBuscarCampo extends HttpServlet {
                 }
             }
             //Retornando a mensagem para usuário
+            if (resultado == null){
+                request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
+            }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
                 request.getRequestDispatcher("../../Retorno/Certo/BuscarCampoTpDef.jsp").forward(request, response);

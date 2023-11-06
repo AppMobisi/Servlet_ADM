@@ -37,6 +37,9 @@ public class ServletTpEstaBuscarCampo extends HttpServlet {
                 }
             }
             //Retornando a mensagem para o usuário
+            if (resultado == null){
+                request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
+            }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
                 request.getRequestDispatcher("../../Retorno/Certo/BuscarCampoTpEst.jsp").forward(request, response);
