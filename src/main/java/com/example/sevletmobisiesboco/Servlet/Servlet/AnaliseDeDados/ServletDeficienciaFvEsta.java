@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletDeficienciaFvEsta", value = "/ServletDeficienciaFvEsta")
+@WebServlet(name = "ServletDeficienciaFvEsta", value = "/Entrada/Certo/DeficienciaFvEsta")
 public class ServletDeficienciaFvEsta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

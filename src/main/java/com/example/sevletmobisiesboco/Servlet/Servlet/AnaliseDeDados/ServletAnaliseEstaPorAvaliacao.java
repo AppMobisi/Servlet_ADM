@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletAnaliseDeDados", value = "/ServletAnaliseDeDados")
+@WebServlet(name = "ServletAnaliseDeDados", value = "/Entrada/Certo/EstaPorAvaliacao")
 public class ServletAnaliseEstaPorAvaliacao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
