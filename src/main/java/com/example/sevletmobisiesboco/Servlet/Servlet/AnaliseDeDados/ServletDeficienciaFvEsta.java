@@ -20,12 +20,22 @@ public class ServletDeficienciaFvEsta extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            Integer id = Integer.parseInt(request.getParameter("id"));
+            String parametro = request.getParameter("parametro");
+            String campo = request.getParameter("frequencia");
             //Criando o objeto das classes
             AnaliseDeDados analiseDeDados = new AnaliseDeDados();
             //Executando o método e verificando os tipos dos parâmetros();os
             ResultSet resultado;
-            resultado = analiseDeDados.deficienciaFvEstabelecimento(id);
+            try {
+                resultado = analiseDeDados.deficienciaFvEstabelecimento(Integer.parseInt(parametro), campo);
+            }catch (NumberFormatException nu){
+                try {
+                    resultado = analiseDeDados.deficienciaFvEstabelecimento(Double.parseDouble(parametro), campo);
+                }catch (NumberFormatException nuf){
+                    resultado = analiseDeDados.deficienciaFvEstabelecimento(parametro, campo);
+                }
+            }
+
 
             //Retornando a mensagem para o usuário
             if (resultado == null){

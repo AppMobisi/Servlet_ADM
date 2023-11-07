@@ -51,7 +51,7 @@
           while (rs.next()){
       %>
       <tr>
-        <td><%= rs.getString("iId")%></td>
+        <td><%= rs.getInt("iId")%></td>
         <td><%= rs.getInt("iUsuarioId")%></td>
         <td><%= rs.getInt("iEstabelecimentoId")%></td>
       </tr>

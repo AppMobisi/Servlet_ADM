@@ -18,7 +18,7 @@ public class ServletTpEstaRemover extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String campo = request.getParameter("escolha");
+            String campo = request.getParameter("frequencia");
             String  parametro = request.getParameter("parametro");
             //Criando o objeto da classe
             TpEstabelecimento tpEstabelecimentoCrud = new TpEstabelecimento();

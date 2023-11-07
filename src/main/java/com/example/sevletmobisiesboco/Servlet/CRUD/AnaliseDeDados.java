@@ -55,7 +55,7 @@ public class AnaliseDeDados extends Conexao{
         }
     }
     //Método que mostra estabelecimento por deficiencia que mais favorita
-    public ResultSet deficienciaFvEstabelecimento(int id){
+    public ResultSet deficienciaFvEstabelecimento(Object parametro, String campo){
         conectar();
         try{
             pstmt= conn.prepareStatement("SELECT td.cnome, e.cnome FROM tp_deficiencia td" +
@@ -65,10 +65,10 @@ public class AnaliseDeDados extends Conexao{
                     "WHERE td.iid IN " +
                     "(SELECT u.itipodeficienciaid FROM usuario u WHERE u.iid IN " +
                     "(SELECT ef.iusuarioid FROM estabelecimento_favorito ef WHERE" +
-                    "  ef.iestabelecimentoid = ? GROUP BY" +
+                    "  ef."+ campo +" = ? GROUP BY" +
                     "  1 ORDER BY COUNT(ef.iusuarioid) DESC LIMIT 1))");
             //Inserindo os parametros
-            pstmt.setInt(1, id );
+            pstmt.setObject(1, parametro );
             rs = pstmt.executeQuery();
         }catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -79,13 +79,13 @@ public class AnaliseDeDados extends Conexao{
         }
     }
     //Método que mostra o estabelecimento favorito do usuário
-    public ResultSet estabelecimentoFVusuario(int id){
+    public ResultSet estabelecimentoFVusuario(Object parametro, String campo){
         conectar();
         try{
             pstmt= conn.prepareStatement("SELECT * FROM estabelecimento e JOIN estabelecimento_favorito ef ON ef.iestabelecimentoid = e.iid JOIN" +
-                    " usuario u ON u.iid = ef.iestabelecimentoid WHERE u.iid = ?");
+                    " usuario u ON u.iid = ef.iestabelecimentoid WHERE u."+ campo +" = ?");
             //Inserindo os parametros
-            pstmt.setInt(1, id);
+            pstmt.setObject(1, parametro);
             rs = pstmt.executeQuery();
         }catch (SQLException sqle) {
             sqle.printStackTrace();

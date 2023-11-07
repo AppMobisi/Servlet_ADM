@@ -21,7 +21,7 @@ public class ServletAnaliseEstaPorAvaliacao extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            Double parametro = Double.parseDouble(request.getParameter("parametro"));
+            Double parametro = Double.parseDouble(request.getParameter("nota"));
             //Criando o objeto das classes
             AnaliseDeDados analiseDeDados = new AnaliseDeDados();
             //Executando o método e verificando os tipos dos parâmetros
