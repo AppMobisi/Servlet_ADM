@@ -22,7 +22,7 @@ public class ServletFormBuscarCampo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            String campo = request.getParameter("campo");
+            String campo = request.getParameter("ecolha");
             String parametro = request.getParameter("parametro");
             //Criando o objeto das classes
             Formulario formularioCrud = new Formulario();

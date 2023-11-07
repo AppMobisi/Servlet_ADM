@@ -21,7 +21,14 @@
             <h1>Mostrar por campo</h1>
             <h2>Tabela o Formulário</h2>
             <form action="buscarCampo" method="post">
-                <input type="text" name="campo"  placeholder="Insira o campo:">
+                <select name="frequencia" id="escolha" >
+                    <option value="">Escolha uma coluna</option>
+                    <option value="iid">Id</option>
+                    <option value="irampa">Rampa</option>
+                    <option value="ibanheiro">Banheiro</option>
+                    <option value="icorrimao">Corrimão</option>
+                    <option value="ivagapreferencial">Vaga preferencial</option>
+                </select>
                 <br>
                 <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
                 <br>

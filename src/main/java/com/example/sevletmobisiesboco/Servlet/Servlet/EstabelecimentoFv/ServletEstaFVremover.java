@@ -21,7 +21,7 @@ public class ServletEstaFVremover extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            String campo = request.getParameter("campo");
+            String campo = request.getParameter("escolha");
             int  parametro = Integer.parseInt(request.getParameter("parametro"));
 
             //Criando o objeto da classe

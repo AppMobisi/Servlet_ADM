@@ -21,7 +21,12 @@
             <h1>Remover </h1>
             <h2>Tabela Estabelecimento Favorito</h2>
             <form action="removerEstFv" method="post">
-                <input type="text" name="campo"  placeholder="Insira o campo:">
+                <select name="frequencia" id="escolha" >
+                    <option value="">Escolha uma coluna</option>
+                    <option value="iid">Id</option>
+                    <option value="iusuariois">Id do usuário</option>
+                    <option value="iestabelecimentoid">Id do estabelecimento</option>
+                </select>
                 <br>
                 <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
                 <br>

@@ -7,12 +7,12 @@ import java.sql.SQLException;
 
 public class AnaliseDeDados extends Conexao{
     //Método que mostra estabelecimento com avaliações acima de um número de estrelas
-    public ResultSet estabelecimentoPorAvaliacao(Object parametro){
+    public ResultSet estabelecimentoPorAvaliacao(double parametro){
         conectar();
         try{
             pstmt= conn.prepareStatement("SELECT * FROM estabelecimento WHERE nnota > ?");
             //Inserindo os parametros
-            pstmt.setObject(1, parametro);
+            pstmt.setDouble(1, parametro);
             rs = pstmt.executeQuery();
         }catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -55,14 +55,14 @@ public class AnaliseDeDados extends Conexao{
         }
     }
     //Método que mostra estabelecimento por deficiencia que mais favorita
-    public ResultSet deficienciaFVEstabelecimento(int id){
+    public ResultSet deficienciaFvEstabelecimento(int id){
         conectar();
         try{
             pstmt= conn.prepareStatement("SELECT td.cnome, e.cnome FROM tp_deficiencia td" +
-                    "  JOIN usuario u ON u.itipodeficienciaid = td.iid" +
-                    "  JOIN estabelecimento_favorito ef ON ef.iusuarioid = u.iid" +
-                    "  JOIN estabelecimento e ON e.iid = ef.iestabelecimentoid" +
-                    "   WHERE td.iid IN " +
+                    "JOIN usuario u ON u.itipodeficienciaid = td.iid" +
+                    "JOIN estabelecimento_favorito ef ON ef.iusuarioid = u.iid" +
+                    "JOIN estabelecimento e ON e.iid = ef.iestabelecimentoid" +
+                    "WHERE td.iid IN " +
                     "(SELECT u.itipodeficienciaid FROM usuario u WHERE u.iid IN " +
                     "(SELECT ef.iusuarioid FROM estabelecimento_favorito ef WHERE" +
                     "  ef.iestabelecimentoid = ? GROUP BY" +

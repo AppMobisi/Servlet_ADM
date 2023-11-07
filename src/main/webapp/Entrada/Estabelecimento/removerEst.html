@@ -21,7 +21,17 @@
             <h1>Remover </h1>
             <h2>Tabela Estabelecimento</h2>
             <form action="removerEst" method="post">
-                <input type="text" name="campo"  placeholder="Insira o campo:">
+                <select name="frequencia" id="escolha" >
+                    <option value="">Escolha uma coluna</option>
+                    <option value="iid">Id</option>
+                    <option value="cnome">Nome</option>
+                    <option value="cnota">Nota</option>
+                    <option value="ccep">CEP</option>
+                    <option value="crua">Rua</option>
+                    <option value="ccidade">Cidade</option>
+                    <option value="cestado">Estado</option>
+                    <option value="cfoto">Foto</option>
+                </select>
                 <br>
                 <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
                 <br>
