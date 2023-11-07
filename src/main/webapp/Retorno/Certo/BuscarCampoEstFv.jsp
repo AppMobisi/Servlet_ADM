@@ -42,8 +42,11 @@
     <table class="tabela" border=2 width="90%">
       <tr>
         <th>Id</th>
-        <th>Id usuario</th>
-        <th>Estabelecimento Id</th>
+        <th>Nome do usuário</th>
+        <th>Nome do estabelecimento</th>
+        <th>CEP</th>
+        <th>Cidade</th>
+        <th>Rua</th>
       </tr>
       <%
         ResultSet rs = (ResultSet) request.getAttribute("resultado");
@@ -51,9 +54,12 @@
           while (rs.next()){
       %>
       <tr>
-        <td><%= rs.getInt("iId")%></td>
-        <td><%= rs.getInt("iUsuarioId")%></td>
-        <td><%= rs.getInt("iEstabelecimentoId")%></td>
+        <td><%= rs.getInt("iid")%></td>
+        <td><%= rs.getString("nomeUsuario")%></td>
+        <td><%= rs.getString("cnome")%></td>
+        <td><%= rs.getString("ccep")%></td>
+        <td><%= rs.getString("ccidade")%></td>
+        <td><%= rs.getString("crua")%></td>
       </tr>
       <% }
       }catch (SQLException erro){

@@ -54,7 +54,9 @@ public class EstabelecimentoFv extends Conexao{
     public ResultSet buscar(){
         conectar();
         try{
-            pstmt= conn.prepareStatement("SELECT * FROM Estabelecimento_favorito");
+            pstmt= conn.prepareStatement("  SELECT ef.iid, u.cnome as nomeUsuario, e.cnome, e.ccep, e.crua, e.ccidade FROM estabelecimento_favorito ef " +
+                    "  JOIN estabelecimento e ON ef.iestabelecimentoid = e.iid " +
+                    "  JOIN usuario u ON u.iid = ef.iestabelecimentoid");
             rs = pstmt.executeQuery();
         }catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -70,7 +72,9 @@ public class EstabelecimentoFv extends Conexao{
     public ResultSet buscarCampo(Object parametro, String campo){
         conectar();
         try{
-            pstmt= conn.prepareStatement("SELECT * FROM Estabelecimento_favorito WHERE " + campo + " = ? ");
+            pstmt= conn.prepareStatement("  SELECT ef.iid, u.cnome as nomeUsuario, e.cnome, e.ccep, e.crua, e.ccidade FROM estabelecimento_favorito ef " +
+                    "  JOIN estabelecimento e ON ef.iestabelecimentoid = e.iid " +
+                    "  JOIN usuario u ON u.iid = ef.iestabelecimentoid WHERE ef." + campo + " = ? ");
             //Inserindo os parametros
             pstmt.setObject(1, parametro);
             rs = pstmt.executeQuery();

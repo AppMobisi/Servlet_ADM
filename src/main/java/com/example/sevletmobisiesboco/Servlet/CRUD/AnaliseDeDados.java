@@ -82,9 +82,9 @@ public class AnaliseDeDados extends Conexao{
     public ResultSet estabelecimentoFVusuario(Object parametro, String campo){
         conectar();
         try{
-            pstmt= conn.prepareStatement("  SELECT u.cnome as nomeUsuario, e.* FROM estabelecimento e \n" +
-                    "  JOIN estabelecimento_favorito ef ON ef.iestabelecimentoid = ef.iid \n" +
-                    "  JOIN usuario u ON u.iid = ef.iestabelecimentoid where u."+campo+" = ?");
+            pstmt= conn.prepareStatement(" SELECT ef.iid, u.cnome as nomeUsuario, e.cnome, e.ccep, e.crua, e.ccidade FROM estabelecimento_favorito ef " +
+                    "  JOIN estabelecimento e ON ef.iestabelecimentoid = e.iid " +
+                    "  JOIN usuario u ON u.iid = ef.iestabelecimentoid WHERE u." + campo  + " = ?");
             //Inserindo os parametros
             pstmt.setObject(1, parametro);
             rs = pstmt.executeQuery();
