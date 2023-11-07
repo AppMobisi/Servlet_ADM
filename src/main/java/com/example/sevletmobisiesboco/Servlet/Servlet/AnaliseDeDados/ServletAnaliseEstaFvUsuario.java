@@ -1,6 +1,6 @@
-package com.example.sevletmobisiesboco.Servlet.Servlet.Estabelecimento;
+package com.example.sevletmobisiesboco.Servlet.Servlet.AnaliseDeDados;
 
-import com.example.sevletmobisiesboco.Servlet.CRUD.Estabelecimento;
+import com.example.sevletmobisiesboco.Servlet.CRUD.AnaliseDeDados;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletEstabelecimentoBuscarCampo", value = "/Entrada/Estabelecimento/buscarCampoEst")
-public class ServletEstabelecimentoBuscarCampo extends HttpServlet {
+@WebServlet(name = "ServletAnaliseEstaFvUsuario", value = "/ServletAnaliseEstaFvUsuario")
+public class ServletAnaliseEstaFvUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -20,21 +20,12 @@ public class ServletEstabelecimentoBuscarCampo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            String campo = request.getParameter("escolha");
-            String parametro = request.getParameter("parametro");
+            Integer id = Integer.parseInt(request.getParameter("id"));
             //Criando o objeto das classes
-            Estabelecimento estabelecimentoCrud = new Estabelecimento();
+            AnaliseDeDados analiseDeDados = new AnaliseDeDados();
             //Executando o método e verificando os tipos dos parâmetros
             ResultSet resultado;
-            try {
-                resultado = estabelecimentoCrud.buscarCampo(Integer.parseInt(parametro), campo);
-            } catch (NumberFormatException nop) {
-                try {
-                    resultado = estabelecimentoCrud.buscarCampo(Double.parseDouble(parametro), campo);
-                } catch (NumberFormatException no) {
-                    resultado = estabelecimentoCrud.buscarCampo(parametro, campo);
-                }
-            }
+            resultado = analiseDeDados.estabelecimentoFVusuario(id);
 
             //Retornando a mensagem para o usuário
             if (resultado == null){
@@ -42,7 +33,7 @@ public class ServletEstabelecimentoBuscarCampo extends HttpServlet {
             }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
-                request.getRequestDispatcher("../../Retorno/Certo/BuscarCampoEst.jsp").forward(request, response);
+                request.getRequestDispatcher("../../Retorno/Certo/____.jsp").forward(request, response);
             }else {
                 request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
             }
@@ -55,4 +46,3 @@ public class ServletEstabelecimentoBuscarCampo extends HttpServlet {
         }
     }
 }
-
