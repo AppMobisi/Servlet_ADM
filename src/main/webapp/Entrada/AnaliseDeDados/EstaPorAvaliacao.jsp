@@ -25,15 +25,16 @@
     <a href="https://mobisi.onrender.com/"><img class="logo" src="../../Entrada/assets/logoComTexto.png" alt="Logo Mobisi"></a>
     <nav class="headerNav">
         <a href="../../adm.html"><button>Acesso do ADM</button></a>
-        <a href="crudEst.html"><button>CRUD</button></a>
+        <a href="crudAnaliseDeDados.html"><button>CRUD</button></a>
     </nav>
 </header>
 <main>
     <section class="section1">
         <h1>Estabelecimento por avaliação</h1>
-        <h2>Tabela Estabelecimento e EstabelecimentoFavorito</h2>
+        <h2>Analise de dados</h2>
         <table class="tabela" border=2 width="90%">
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Nota</th>
                 <th>CEP</th>
@@ -44,14 +45,15 @@
                 <th>Tp Estabelecimento</th>
             </tr>
             <%
-                ResultSet rs = (ResultSet) request.getAttribute("resultado");
                 try {
+                    ResultSet rs = (ResultSet) request.getAttribute("resultado");
                     while (rs.next()){
             %>
             <tr>
-                <td style="text-align: center"><%= rs.getString("cNome")%></td>
+                <td><%= rs.getString("iId")%></td>
+                <td><%= rs.getString("cNome")%></td>
                 <td><%= rs.getDouble("nNota")%></td>
-                <td><%= rs.getInt("iCep")%></td>
+                <td><%= rs.getString("cCep")%></td>
                 <td><%= rs.getString("cRua")%></td>
                 <td><%= rs.getString("cCidade")%></td>
                 <td><%= rs.getString("cEstado")%></td>

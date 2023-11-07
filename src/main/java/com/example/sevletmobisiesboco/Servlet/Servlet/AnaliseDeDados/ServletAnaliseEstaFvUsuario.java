@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletAnaliseEstaFvUsuario", value = "/Entrada/Certo/EstabelecimentoFVusuario")
+@WebServlet(name = "ServletAnaliseEstaFvUsuario", value = "/Entrada/AnaliseDeDados/buscarEstFvUsuario")
 public class ServletAnaliseEstaFvUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,7 +42,7 @@ public class ServletAnaliseEstaFvUsuario extends HttpServlet {
             }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
-                request.getRequestDispatcher("../../Retorno/Certo/____.jsp").forward(request, response);
+                request.getRequestDispatcher("../../Entrada/AnaliseDeDados/EstabelecimentoFVusuario.jsp").forward(request, response);
             }else {
                 request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
             }

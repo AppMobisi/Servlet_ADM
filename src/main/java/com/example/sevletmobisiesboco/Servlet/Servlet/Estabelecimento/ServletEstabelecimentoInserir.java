@@ -21,7 +21,7 @@ public class ServletEstabelecimentoInserir extends HttpServlet {
             //Passando os parâmetros
             String nome = request.getParameter("nome");
             double nota = Double.parseDouble(request.getParameter("nota"));
-            int cep = Integer.parseInt(request.getParameter("cep"));
+            String cep = request.getParameter("cep");
             String rua = request.getParameter("rua");
             String cidade = request.getParameter("cidade");
             String estado = request.getParameter("estado");

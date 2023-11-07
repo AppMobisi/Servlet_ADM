@@ -10,10 +10,10 @@
 <body>
 <img src="../assets/3rings.png" alt="Style Ring" class="ThreeRings">
 <header>
-  <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
+  <a href=""><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
-    <a href="../../adm.html"><button>Acesso do ADM</button></a>
-    <a href="crudEst.html"><button>CRUD</button></a>
+    <a href="../adm.html"><button>Acesso do ADM</button></a>
+    <a href="crudAnaliseDeDados.html"><button>CRUD</button></a>
   </nav>
 </header>
 <main>
@@ -21,20 +21,9 @@
     <h1>Buscar estabelecimento por deficiencia favorita </h1>
     <h2>Analise de dados</h2>
     <p>Método que mostra o tipo de defeciência dos usuários que mais favoritaram aquele estabelecimento</p>
-    <form action="ServletAnaliseDeDados" method="post">
-      <select name="frequencia" id="escolha" >
-        <option value="">Escolha uma coluna</option>
-        <option value="iid">Id</option>
-        <option value="cnome">Nome</option>
-        <option value="cnota">Nota</option>
-        <option value="ccep">CEP</option>
-        <option value="crua">Rua</option>
-        <option value="ccidade">Cidade</option>
-        <option value="cestado">Estado</option>
-        <option value="cfoto">Foto</option>
-      </select>
+    <form action="buscarEstPorDefFv" method="post">
       <br>
-      <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
+      <input type="text" name="parametro"  placeholder="Insira o ID do estabelecimento:">
       <br>
       <input type="submit" value="Enviar" id ="enviar">
     </form>

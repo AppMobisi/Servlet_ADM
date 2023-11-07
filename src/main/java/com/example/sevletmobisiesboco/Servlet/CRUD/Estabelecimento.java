@@ -19,7 +19,7 @@ public class Estabelecimento extends Conexao{
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
             pstmt.setDouble(2, estabelecimentoObj.getNota());
-            pstmt.setInt(3, estabelecimentoObj.getCep());
+            pstmt.setString(3, estabelecimentoObj.getCep());
             pstmt.setString(4, estabelecimentoObj.getRua());
             pstmt.setString(5, estabelecimentoObj.getCidade());
             pstmt.setString(6, estabelecimentoObj.getEstado());
@@ -50,7 +50,7 @@ public class Estabelecimento extends Conexao{
                     //pegando informações do result set e add em variaveis
                     String nome = rs.getString("cnome");
                     double nota = rs.getDouble("nnota");
-                    int cep = rs.getInt("icep");
+                    String cep = rs.getString("ccep");
                     String rua = rs.getString("crua");
                     String cidade = rs.getString("ccidade");
                     String estado = rs.getString("cestado");
@@ -77,7 +77,7 @@ public class Estabelecimento extends Conexao{
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
             pstmt.setDouble(2, estabelecimentoObj.getNota());
-            pstmt.setInt(3, estabelecimentoObj.getCep());
+            pstmt.setString(3, estabelecimentoObj.getCep());
             pstmt.setString(4, estabelecimentoObj.getRua());
             pstmt.setString(5, estabelecimentoObj.getCidade());
             pstmt.setString(6, estabelecimentoObj.getEstado());

@@ -20,13 +20,13 @@
   <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
     <a href="../../adm.html"><button>Acesso do ADM</button></a>
-    <a href="crudTpDef.html"><button>CRUD</button></a>
+    <a href="crudAnaliseDeDados.html"><button>CRUD</button></a>
   </nav>
 </header>
 <main>
   <section class="section1">
     <h1>Deficiência mais comum no estabeleciento</h1>
-    <h2>Tabela Tipo Deficiência</h2>
+    <h2>Analise de dados</h2>
     <table class="tabela" border="2px" width="90%">
       <tr>
         <th>Id</th>

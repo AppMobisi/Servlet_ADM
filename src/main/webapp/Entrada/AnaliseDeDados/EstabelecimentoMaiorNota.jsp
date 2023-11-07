@@ -26,13 +26,13 @@
   <a href="https://mobisi.onrender.com/"><img class="logo" src="../../Entrada/assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
     <a href="../../adm.html"><button>Acesso do ADM</button></a>
-    <a href="crudEst.html"><button>CRUD</button></a>
+    <a href="crudAnaliseDeDados.html"><button>CRUD</button></a>
   </nav>
 </header>
 <main>
   <section class="section1">
     <h1>Estabelecimentos com maiores nota</h1>
-    <h2>Tabela Estabelecimento</h2>
+    <h2>Analise de dados</h2>
     <table class="tabela" border=2 width="90%">
       <tr>
         <th>Nome</th>
@@ -54,7 +54,7 @@
       <tr>
         <td style="text-align: center"><%= rs.getString("cnome")%></td>
         <td><%= rs.getDouble("nnota")%></td>
-        <td><%= rs.getInt("icep")%></td>
+        <td><%= rs.getString("ccep")%></td>
         <td><%= rs.getString("crua")%></td>
         <td><%= rs.getString("ccidade")%></td>
         <td><%= rs.getString("cestado")%></td>

@@ -3,7 +3,7 @@ package com.example.sevletmobisiesboco.Servlet.Tabela;
 public class EstabelecimentoObj {
     private String nome;
     private double nota;
-    private int cep;
+    private String cep;
     private String rua;
     private String cidade;
     private String  estado;
@@ -13,7 +13,7 @@ public class EstabelecimentoObj {
     //metodo construtor
 
 
-    public EstabelecimentoObj(String nome, double nota, int cep, String rua, String cidade, String estado, String foto, int fkTpEstabelecimento) {
+    public EstabelecimentoObj(String nome, double nota, String cep, String rua, String cidade, String estado, String foto, int fkTpEstabelecimento) {
         this.nome = nome;
         this.nota = nota;
         this.cep = cep;
@@ -41,11 +41,11 @@ public class EstabelecimentoObj {
         this.nota = nota;
     }
 
-    public int getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 

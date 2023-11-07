@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletAnaliseDeDados", value = "/Entrada/Certo/EstaPorAvaliacao")
+@WebServlet(name = "ServletAnaliseDeDados", value = "/Entrada/AnaliseDeDados/buscarEstAv")
 public class ServletAnaliseEstaPorAvaliacao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +34,7 @@ public class ServletAnaliseEstaPorAvaliacao extends HttpServlet {
             }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
-                request.getRequestDispatcher("../../Retorno/Certo/___.jsp").forward(request, response);
+                request.getRequestDispatcher("../../Entrada/AnaliseDeDados/EstabelecimentoMaiorNota.jsp").forward(request, response);
             }else {
                 request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
             }

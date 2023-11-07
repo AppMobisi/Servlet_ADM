@@ -40,26 +40,30 @@
         <h2>Tabela Estabelecimento</h2>
         <table class="tabela" border=2 width="90%">
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Nota</th>
                 <th>CEP</th>
                 <th>Rua</th>
                 <th>Cidade</th>
                 <th>Estado</th>
+                <th>Foto</th>
                 <th>Tp Estabelecimento</th>
             </tr>
             <%
-                ResultSet rs = (ResultSet) request.getAttribute("resultado");
                 try {
+                    ResultSet rs = (ResultSet) request.getAttribute("resultado");
                     while (rs.next()){
             %>
             <tr>
-                <td style="text-align: center"><%= rs.getString("cNome")%></td>
+                <td><%= rs.getString("iId")%></td>
+                <td><%= rs.getString("cNome")%></td>
                 <td><%= rs.getDouble("nNota")%></td>
-                <td><%= rs.getInt("iCep")%></td>
+                <td><%= rs.getString("cCep")%></td>
                 <td><%= rs.getString("cRua")%></td>
                 <td><%= rs.getString("cCidade")%></td>
                 <td><%= rs.getString("cEstado")%></td>
+                <td><%= rs.getString("cFoto")%></td>
                 <td><%= rs.getInt("itpestabelecimento")%></td>
             </tr>
             <% }

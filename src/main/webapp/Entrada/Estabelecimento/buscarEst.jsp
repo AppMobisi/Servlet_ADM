@@ -53,11 +53,11 @@
         <td><%= rs.getString("iId")%></td>
         <td><%= rs.getString("cNome")%></td>
         <td><%= rs.getDouble("nNota")%></td>
-        <td><%= rs.getInt("iCep")%></td>
+        <td><%= rs.getString("cCep")%></td>
         <td><%= rs.getString("cRua")%></td>
         <td><%= rs.getString("cCidade")%></td>
         <td><%= rs.getString("cEstado")%></td>
-        <td><%= rs.getInt("cFoto")%></td>
+        <td><%= rs.getString("cFoto")%></td>
         <td><%= rs.getInt("itpestabelecimento")%></td>
       </tr>
       <% }
