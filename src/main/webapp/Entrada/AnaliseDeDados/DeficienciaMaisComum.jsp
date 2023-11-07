@@ -2,6 +2,7 @@
 <%@ page import="com.example.sevletmobisiesboco.Servlet.CRUD.Estabelecimento" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.example.sevletmobisiesboco.Servlet.CRUD.TpDeficiencia" %>
+<%@ page import="com.example.sevletmobisiesboco.Servlet.CRUD.AnaliseDeDados" %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -32,8 +33,8 @@
         <th>Nome</th>
       </tr>
       <%
-        TpDeficiencia tpDeficiencia = new TpDeficiencia();
-        ResultSet rs = tpDeficiencia.buscar();
+        AnaliseDeDados analiseDeDados = new AnaliseDeDados();
+        ResultSet rs = analiseDeDados.encontrarDeficienciaMaisComum();
         try {
           if (rs.isBeforeFirst()) {
             while (rs.next()){

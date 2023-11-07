@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %>
+<%@ page import="com.example.sevletmobisiesboco.Servlet.CRUD.AnaliseDeDados" %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -6,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estabelecimento por avaliação</title>
+  <title>Estabelecimento com maiores notas</title>
   <link rel="stylesheet" href="../../Entrada/style.css">
   <style>
     .section1{
@@ -30,7 +31,7 @@
 </header>
 <main>
   <section class="section1">
-    <h1>Estabelecimento por maior nota</h1>
+    <h1>Estabelecimentos com maiores nota</h1>
     <h2>Tabela Estabelecimento</h2>
     <table class="tabela" border=2 width="90%">
       <tr>
@@ -43,22 +44,24 @@
         <th>Foto</th>
         <th>Tp Estabelecimento</th>
       </tr>
+
       <%
-        ResultSet rs = (ResultSet) request.getAttribute("resultado");
-        try {
+        AnaliseDeDados analiseDeDados = new AnaliseDeDados();
+        ResultSet rs = analiseDeDados.estabelecimentosMaiorNota();
+        try{
           while (rs.next()){
       %>
       <tr>
-        <td style="text-align: center"><%= rs.getString("cNome")%></td>
-        <td><%= rs.getDouble("nNota")%></td>
-        <td><%= rs.getInt("iCep")%></td>
-        <td><%= rs.getString("cRua")%></td>
-        <td><%= rs.getString("cCidade")%></td>
-        <td><%= rs.getString("cEstado")%></td>
-        <td><%= rs.getString("cFoto")%></td>
+        <td style="text-align: center"><%= rs.getString("cnome")%></td>
+        <td><%= rs.getDouble("nnota")%></td>
+        <td><%= rs.getInt("icep")%></td>
+        <td><%= rs.getString("crua")%></td>
+        <td><%= rs.getString("ccidade")%></td>
+        <td><%= rs.getString("cestado")%></td>
+        <td><%= rs.getString("cfoto")%></td>
         <td><%= rs.getInt("itpestabelecimento")%></td>
       </tr>
-      <% }
+      <%}
       }catch (SQLException erro){
         erro.printStackTrace();
       } %>
