@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar por campo</title>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+<img src="../assets/3rings.png" alt="Style Ring" class="ThreeRings">
+<header>
+    <a href="https://mobisi.onrender.com/"><img class="logo" src="../assets/logoComTexto.png" alt="Logo Mobisi"></a>
+    <nav class="headerNav">
+        <a href="../../adm.html"><button>Acesso do ADM</button></a>
+        <a href="crudEst.html"><button>CRUD</button></a>
+    </nav>
+</header>
+<main>
+    <section class="section1">
+        <h1>Buscar estabelecimento por deficiencia favorita </h1>
+        <h2>Analise de dados</h2>
+        <p>Método que mostra o tipo de defeciência dos usuários que mais favoritaram aquele estabelecimento</p>
+        <form action="ServletAnaliseDeDados" method="post">
+            <select name="frequencia" id="escolha" >
+                <option value="">Escolha uma coluna</option>
+                <option value="iid">Id</option>
+                <option value="cnome">Nome</option>
+                <option value="ccpf">CPF</option>
+                <option value="ccep">CEP</option>
+                <option value="ctelefone">Telefone</option>
+                <option value="cemail">E-mail</option>
+                <option value="cbairro">Bairro</option>
+                <option value="cestado">Estado</option>
+                <option value="itipodeficienciaid">Tipo deficiência ID </option>
+            </select>
+            <br>
+            <input type="text" name="parametro"  placeholder="Insira o parâmetro:">
+            <br>
+            <input type="submit" value="Enviar" id ="enviar">
+        </form>
+    </section>
+</main>
+</body>
+</html>

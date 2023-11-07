@@ -20,12 +20,21 @@ public class ServletAnaliseEstaFvUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             //Passando os parâmetros
-            Integer id = Integer.parseInt(request.getParameter("id"));
+            String parametro = request.getParameter("parametro");
+            String campo = request.getParameter("frequencia");
             //Criando o objeto das classes
             AnaliseDeDados analiseDeDados = new AnaliseDeDados();
             //Executando o método e verificando os tipos dos parâmetros
             ResultSet resultado;
-            resultado = analiseDeDados.estabelecimentoFVusuario(id);
+            try {
+                resultado = analiseDeDados.estabelecimentoFVusuario(Integer.parseInt(parametro), campo);
+            }catch (NumberFormatException nu){
+                try {
+                    resultado = analiseDeDados.estabelecimentoFVusuario(Double.parseDouble(parametro), campo);
+                }catch (NumberFormatException nuf){
+                    resultado = analiseDeDados.estabelecimentoFVusuario(parametro, campo);
+                }
+            }
 
             //Retornando a mensagem para o usuário
             if (resultado == null){
