@@ -22,8 +22,8 @@ public class ServletEstabelecimentoRemover extends HttpServlet {
             Estabelecimento estabelecimentoCrud = new Estabelecimento();
             int resultado = -2;
             //Passando os parâmetros e executando o método
-            String parametro = request.getParameter("frequencia");
-            String campo = request.getParameter("campo");
+            String parametro = request.getParameter("parametro");
+            String campo = request.getParameter("frequencia");
             try{
                resultado = estabelecimentoCrud.remover(campo, Integer.parseInt(request.getParameter("parametro")));
             }catch(NumberFormatException n){

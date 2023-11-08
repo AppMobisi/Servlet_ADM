@@ -34,7 +34,7 @@ public class ServletAnaliseEstaPorAvaliacao extends HttpServlet {
             }
             if (resultado.isBeforeFirst()) {
                 request.setAttribute("resultado", resultado);
-                request.getRequestDispatcher("../../Entrada/AnaliseDeDados/EstabelecimentoMaiorNota.jsp").forward(request, response);
+                request.getRequestDispatcher("../../Entrada/AnaliseDeDados/EstaPorAvaliacao.jsp").forward(request, response);
             }else {
                 request.getRequestDispatcher("../../Retorno/Erro/erroBd.html").forward(request, response);
             }

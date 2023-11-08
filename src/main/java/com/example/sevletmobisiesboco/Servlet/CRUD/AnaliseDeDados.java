@@ -26,10 +26,9 @@ public class AnaliseDeDados extends Conexao{
     public ResultSet encontrarDeficienciaMaisComum(){
         conectar();
         try{
-            pstmt= conn.prepareStatement("SELECT * FROM tp_deficiencia WHERE iid IN (" +
-                    "SELECT td.iid FROM usuario u JOIN " +
-                    "tp_deficiencia td ON td.iid = u.itipodeficienciaid GROUP BY 1 ORDER " +
-                    "BY COUNT(u.itipodeficienciaid) DESC LIMIT 1 ) ");
+            pstmt= conn.prepareStatement("SELECT td.iid, td.cnome, COUNT(u.itipodeficienciaid) AS quantidade FROM usuario u JOIN" +
+                    "tp_deficiencia td ON td.iid = u.itipodeficienciaid GROUP BY 1,2 ORDER " +
+                    "BY 3 DESC LIMIT 1");
             rs = pstmt.executeQuery();
         }catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -54,7 +53,7 @@ public class AnaliseDeDados extends Conexao{
             return rs;
         }
     }
-    //Método que mostra estabelecimento por deficiencia que mais favorita
+    //Método que mostra estabelecimento por deficiencia que é mais acessivel no local
     public ResultSet deficienciaFvEstabelecimento(int parametro){
         conectar();
         try{

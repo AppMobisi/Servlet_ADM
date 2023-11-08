@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deficiência mais acessivel no estabelecimento</title>
+  <title>Deficiência mais acessível no estabelecimento</title>
   <link rel="stylesheet" href="../../Entrada/style.css">
   <style>
     .section1{
@@ -30,7 +30,7 @@
 </header>
 <main>
   <section class="section1">
-    <h1>Deficiência mais acessivel no estabelecimento</h1>
+    <h1>Buscar deficiência mais acessível no estabelecimento</h1>
     <h2>Analise de dados</h2>
     <table class="tabela" border=2 width="90%">
       <tr>
