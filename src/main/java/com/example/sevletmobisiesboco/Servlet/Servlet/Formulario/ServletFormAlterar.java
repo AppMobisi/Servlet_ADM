@@ -28,7 +28,7 @@ public class ServletFormAlterar extends HttpServlet {
             int ivaga = Integer.parseInt(request.getParameter("vaga"));
 
             //Executando o método
-            int resultado = formulario.alterar(new FormularioObj(idUsuario, idEst,irampa,icorrimao,ibanheiro,ivaga),id);
+            int resultado = formulario.alterar(new FormularioObj(irampa,icorrimao,ibanheiro,ivaga, idEst, idUsuario),id);
             //Retornando a mensagem para o usuário
             if(resultado >= 1){
                 request.getRequestDispatcher("../../Retorno/Certo/alterar.html").forward(request, response);

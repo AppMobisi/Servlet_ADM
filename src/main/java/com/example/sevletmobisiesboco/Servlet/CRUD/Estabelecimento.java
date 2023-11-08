@@ -14,8 +14,8 @@ public class Estabelecimento extends Conexao{
     public int inserir(EstabelecimentoObj estabelecimentoObj){
         conectar();//abrindo a conexão com o banco
         try {
-            pstmt = conn.prepareStatement("INSERT INTO Estabelecimento ( cNome, nNota, iCep, cRua, cCidade, cEstado, cFoto  itpestabelecimento) " +
-                    "VALUES (?,?,?,?,?,?,?)");
+            pstmt = conn.prepareStatement("INSERT INTO Estabelecimento ( cNome, nNota, cCep, cRua, cCidade, cEstado, cFoto,  itpestabelecimento) " +
+                    "VALUES (?,?,?,?,?,?,?,?)");
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
             pstmt.setDouble(2, estabelecimentoObj.getNota());
@@ -73,7 +73,7 @@ public class Estabelecimento extends Conexao{
     public int alterar(EstabelecimentoObj estabelecimentoObj, int iid){
         conectar();
         try{
-            pstmt = conn.prepareStatement("UPDATE Estabelecimento SET cnome = ?, nnota = ?, icep = ?, crua = ?, ccidade = ?, cestado = ?, cfoto = ?, itpestabelecimento = ?  WHERE iid = ?");
+            pstmt = conn.prepareStatement("UPDATE Estabelecimento SET cnome = ?, nnota = ?, ccep = ?, crua = ?, ccidade = ?, cestado = ?, cfoto = ?, itpestabelecimento = ?  WHERE iid = ?");
             //Inserindo os parametros
             pstmt.setString(1, estabelecimentoObj.getNome());
             pstmt.setDouble(2, estabelecimentoObj.getNota());

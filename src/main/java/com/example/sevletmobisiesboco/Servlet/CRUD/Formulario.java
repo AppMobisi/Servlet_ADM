@@ -70,7 +70,7 @@ public class Formulario extends Conexao{
     public int alterar(FormularioObj formularioObj, int iid){
         conectar();
         try{
-            pstmt = conn.prepareStatement("UPDATE Estabelecimento SET iusuarioid = ?, iestabelecimentoid = ?, irampa = ?, icorrimao = ?, ibanheiro = ?, ivagapreferencial = ?  WHERE iId = ?");
+            pstmt = conn.prepareStatement("UPDATE Formulario SET iusuarioid = ?, iestabelecimentoid = ?, irampa = ?, icorrimao = ?, ibanheiro = ?, ivagapreferencial = ?  WHERE iId = ?");
             //Inserindo os parametros
             pstmt.setInt(1, formularioObj.getFk_usuario_iId());
             pstmt.setInt(2, formularioObj.getFk_Estabelecimento_iId());

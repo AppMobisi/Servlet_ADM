@@ -74,7 +74,7 @@ public class EstabelecimentoFv extends Conexao{
         try{
             pstmt= conn.prepareStatement("  SELECT ef.iid, u.cnome as nomeUsuario, e.cnome, e.ccep, e.crua, e.ccidade FROM estabelecimento_favorito ef " +
                     "  JOIN estabelecimento e ON ef.iestabelecimentoid = e.iid " +
-                    "  JOIN usuario u ON u.iid = ef.iestabelecimentoid WHERE ef." + campo + " = ? ");
+                    "  JOIN usuario u ON u.iid = ef.iusuarioid WHERE ef." + campo + " = ? ");
             //Inserindo os parametros
             pstmt.setObject(1, parametro);
             rs = pstmt.executeQuery();

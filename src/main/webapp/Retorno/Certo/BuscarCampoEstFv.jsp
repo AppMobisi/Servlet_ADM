@@ -31,7 +31,7 @@
 <header>
   <a href="https://mobisi.onrender.com/"><img class="logo" src="../../Entrada/assets/logoComTexto.png" alt="Logo Mobisi"></a>
   <nav class="headerNav">
-    <a href="../../adm.html"><button>Tabela</button></a>
+    <a href="../../adm.html"><button>Acesso do ADM</button></a>
     <a href="crudEst.html"><button>CRUD</button></a>
   </nav>
 </header>
