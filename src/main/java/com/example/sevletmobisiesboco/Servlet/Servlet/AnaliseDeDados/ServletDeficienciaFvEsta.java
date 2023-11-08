@@ -23,12 +23,9 @@ public class ServletDeficienciaFvEsta extends HttpServlet {
             String parametro = request.getParameter("parametro");
             //Criando o objeto das classes
             AnaliseDeDados analiseDeDados = new AnaliseDeDados();
-            //Executando o método e verificando os tipos dos parâmetros();os
+            //Executando o método e verificando os tipos dos parâmetros()
             ResultSet resultado;
             resultado = analiseDeDados.deficienciaFvEstabelecimento(Integer.parseInt(parametro));
-
-
-
             //Retornando a mensagem para o usuário
             if (resultado == null){
                 System.out.println(1);

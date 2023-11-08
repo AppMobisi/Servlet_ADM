@@ -77,6 +77,27 @@ public class AnaliseDeDados extends Conexao{
             return rs;
         }
     }
+    //Método que mostra o estabelecimento a partir de um tipo de deficiência
+    public ResultSet estabelecimentoDefAcessivel(String parametro){
+        conectar();
+        try{
+            pstmt= conn.prepareStatement("SELECT e.cnome AS cnomeEst, e.ccep, e.crua, e.ccidade, e.nnota, e.cestado, td.cnome AS cnomeDef FROM estabelecimento e " +
+                    "JOIN estabelecimento_favorito fv ON fv.iestabelecimentoid = e.iid " +
+                    "JOIN usuario u ON u.iid = fv.iusuarioid " +
+                    "JOIN tp_deficiencia td ON u.itipodeficienciaid = td.iid " +
+                    "WHERE td.cnome = ? " +
+                    "ORDER BY 1 ");
+            //Inserindo os parametros
+            pstmt.setString(1, parametro );
+            rs = pstmt.executeQuery();
+        }catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        finally {
+            desconectar();
+            return rs;
+        }
+    }
     //Método que mostra o estabelecimento favorito do usuário
     public ResultSet estabelecimentoFVusuario(Object parametro, String campo){
         conectar();
