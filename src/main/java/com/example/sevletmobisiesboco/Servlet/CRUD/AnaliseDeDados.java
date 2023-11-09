@@ -26,7 +26,7 @@ public class AnaliseDeDados extends Conexao{
     public ResultSet encontrarDeficienciaMaisComum(){
         conectar();
         try{
-            pstmt= conn.prepareStatement("SELECT td.iid, td.cnome, COUNT(u.itipodeficienciaid) AS quantidade FROM usuario u JOIN" +
+            pstmt= conn.prepareStatement("SELECT td.iid, td.cnome, COUNT(u.itipodeficienciaid) AS quantidade FROM usuario u JOIN " +
                     "tp_deficiencia td ON td.iid = u.itipodeficienciaid GROUP BY 1,2 ORDER " +
                     "BY 3 DESC LIMIT 1");
             rs = pstmt.executeQuery();
